@@ -1,96 +1,136 @@
+// src/pages/CoursesPage.jsx
+import React from "react";
 import Header from "../components/Header/Header";
+import Footer from "../components/Footer/Footer";
+import "../styles/Pages.css";
 
-const CoursePage = () => {
+const CoursesPage = () => {
   return (
-    <div className="bg-blue-50 min-h-screen text-gray-800">
-      {/* Header */}
-      <Header />
+    <> {/* Use a React Fragment here */}
+      <Header /> {/* Header is now outside page-container */}
 
-      {/* Introduction */}
-      <section className="p-6 max-w-4xl mx-auto">
-        <h2 className="text-3xl font-semibold text-indigo-700 mb-2">Our Academic Programs</h2>
-        <p className="text-lg">
-          Vivekanand College offers a comprehensive range of undergraduate and postgraduate programs 
-          designed to equip students with the knowledge and skills demanded by today’s dynamic global landscape.
-          Our curriculum is regularly updated to reflect industry trends and academic advancements.
-        </p>
-      </section>
+      <div className="page-container"> {/* The rest of your page content remains within page-container */}
+        <main>
+          <section className="page-section text-center">
+            <h1 className="section-title">Our Academic Programs</h1>
+            <p className="section-text">
+              Vivekanand College offers a comprehensive range of undergraduate and postgraduate programs designed to equip students with the knowledge and skills demanded by today's dynamic global landscape. Our curriculum is regularly updated to reflect industry trends and academic advancements.
+            </p>
+          </section>
 
-      {/* UG Programs */}
-      <section className="p-6 max-w-4xl mx-auto">
-        <h3 className="text-2xl font-semibold text-indigo-700 mb-2">Undergraduate Programs (UG)</h3>
-        <ul className="list-disc list-inside space-y-1">
-          <li><strong>B.Sc.</strong> – Computer Science, IT, Biotechnology (3 years)</li>
-          <li><strong>B.Com</strong> – Accounting & Finance, Banking & Insurance (3 years)</li>
-          <li><strong>B.A.</strong> – English Literature, Psychology (3 years)</li>
-        </ul>
-      </section>
+          <section className="page-section video-section">
+            <div className="video-container">
+              <video className="course-video" controls>
+                <source src="/Videos/college-tour.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              <div className="video-caption">A glimpse into our vibrant campus life</div>
+            </div>
+          </section>
 
-      {/* PG Programs */}
-      <section className="p-6 max-w-4xl mx-auto">
-        <h3 className="text-2xl font-semibold text-indigo-700 mb-2">Postgraduate Programs (PG)</h3>
-        <ul className="list-disc list-inside space-y-1">
-          <li><strong>M.Sc.</strong> – Computer Science, IT (2 years)</li>
-          <li><strong>M.Com</strong> – Commerce (2 years)</li>
-        </ul>
-      </section>
+          <section className="page-section">
+            <h2 className="section-subtitle">Undergraduate Programs (UG)</h2>
+            <ul className="section-list">
+              <li>
+                <strong>B.Sc.</strong>
+                <ul>
+                  <li>Computer Science (3 years)</li>
+                  <li>Information Technology (3 years)</li>
+                  <li>Biotechnology (3 years)</li>
+                </ul>
+              </li>
+              <li>
+                <strong>B.Com.</strong>
+                <ul>
+                  <li>Accounting & Finance (3 years)</li>
+                  <li>Banking & Insurance (3 years)</li>
+                </ul>
+              </li>
+              <li>
+                <strong>B.A.</strong>
+                <ul>
+                  <li>English Literature (3 years)</li>
+                  <li>Psychology (3 years)</li>
+                </ul>
+              </li>
+            </ul>
+          </section>
 
-      {/* Fee Structure Table */}
-      <section className="p-6 max-w-6xl mx-auto">
-        <h3 className="text-2xl font-semibold text-indigo-700 mb-4">Program Details & Fee Structure (Annual)</h3>
-        <div className="overflow-x-auto">
-          <table className="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
-            <thead className="bg-indigo-100 text-indigo-800">
-              <tr>
-                <th className="py-2 px-4 text-left">Program Type</th>
-                <th className="py-2 px-4 text-left">Course Name</th>
-                <th className="py-2 px-4 text-left">Duration</th>
-                <th className="py-2 px-4 text-left">Annual Fee (INR)</th>
-                <th className="py-2 px-4 text-left">Eligibility</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className="border-b">
-                <td className="py-2 px-4">UG</td>
-                <td className="py-2 px-4">B.Sc. Computer Science</td>
-                <td className="py-2 px-4">3 Years</td>
-                <td className="py-2 px-4">₹85,000</td>
-                <td className="py-2 px-4">10+2 with PCM (50%)</td>
-              </tr>
-              <tr className="border-b">
-                <td className="py-2 px-4">UG</td>
-                <td className="py-2 px-4">B.Com Accounting & Finance</td>
-                <td className="py-2 px-4">3 Years</td>
-                <td className="py-2 px-4">₹70,000</td>
-                <td className="py-2 px-4">10+2 Commerce (45%)</td>
-              </tr>
-              <tr>
-                <td className="py-2 px-4">PG</td>
-                <td className="py-2 px-4">M.Sc. Information Technology</td>
-                <td className="py-2 px-4">2 Years</td>
-                <td className="py-2 px-4">₹95,000</td>
-                <td className="py-2 px-4">B.Sc. IT/CS (50%)</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
+          <section className="page-section">
+            <h2 className="section-subtitle">Postgraduate Programs (PG)</h2>
+            <ul className="section-list">
+              <li>
+                <strong>M.Sc.</strong>
+                <ul>
+                  <li>Computer Science (2 years)</li>
+                  <li>Information Technology (2 years)</li>
+                </ul>
+              </li>
+              <li>
+                <strong>M.Com.</strong> (2 years)
+              </li>
+              <li>
+                <strong>M.A.</strong> (2 years)
+              </li>
+            </ul>
+          </section>
 
-      {/* Vocational Courses */}
-      <section className="p-6 max-w-4xl mx-auto">
-        <h3 className="text-2xl font-semibold text-indigo-700 mb-2">Specialized & Vocational Courses</h3>
-        <p>
-          We offer certificate and diploma courses in Digital Marketing, Web Development, Data Analytics, and Soft Skills Development.
-        </p>
-        <button className="mt-4 bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Inquire About Courses</button>
-      </section>
+          <section className="page-section">
+            <h2 className="section-subtitle">Program Details & Fee Structure (Annual)</h2>
+            <div className="table-responsive">
+              <table className="admissions-table">
+                <thead>
+                  <tr>
+                    <th>Program Type</th>
+                    <th>Course Name</th>
+                    <th>Duration</th>
+                    <th>Annual Fee (INR)</th>
+                    <th>Eligibility</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>UG</td>
+                    <td>B.Sc. Computer Science</td>
+                    <td>3 Years</td>
+                    <td>₹85,000</td>
+                    <td>10+2 with PCM (50%)</td>
+                  </tr>
+                  <tr>
+                    <td>UG</td>
+                    <td>B.Com. Accounting & Finance</td>
+                    <td>3 Years</td>
+                    <td>₹70,000</td>
+                    <td>10+2 Commerce (45%)</td>
+                  </tr>
+                  <tr>
+                    <td>PG</td>
+                    <td>M.Sc. Information Technology</td>
+                    <td>2 Years</td>
+                    <td>₹95,000</td>
+                    <td>B.Sc. IT/CS (50%)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
 
-      {/* Footer */}
-      <footer className="bg-indigo-900 text-white text-center py-4 mt-8">
-        <p>© 2025 Vivekanand College. All rights reserved.</p>
-      </footer>
-    </div>
+          <section className="page-section">
+            <h2 className="section-subtitle">Specialized & Vocational Courses</h2>
+            <p className="section-text">
+              In addition to traditional degree programs, we offer various certificate and diploma courses in areas like Digital Marketing, Web Development, Data Analytics, and Soft Skills Development, providing specialized training for career enhancement.
+            </p>
+          </section>
+
+          <section className="page-section call-to-action text-center">
+            <p className="section-text">Have questions about a specific course?</p>
+            <a href="/contact" className="button-primary">Inquire About Courses</a>
+          </section>
+        </main>
+      </div>
+      <Footer />
+    </>
   );
 };
 
-export default CoursePage;
+export default CoursesPage;

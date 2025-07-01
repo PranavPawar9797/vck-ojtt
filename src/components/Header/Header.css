@@ -1,0 +1,199 @@
+/* src/components/Header/Header.css */
+
+/* Global Header Wrapper */
+.main-header {
+  background-color: #007bff; /* Vibrant Blue background */
+  color: white; /* Fallback text color */
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.college-name {
+  font-size: 1.8em;
+  font-weight: bold;
+}
+
+.college-name a {
+  color: white; /* White color for "Vivekanand College" */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.college-name a:hover {
+  color: #e2e6ea; /* Slightly off-white on hover */
+}
+
+/* Desktop Navigation Styles (default) */
+.desktop-nav {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.nav-item {
+  color: white; /* White color for nav items (Home, About, Courses, Contact) */
+  text-decoration: none;
+  font-weight: 500;
+  padding: 5px 0;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+.nav-item:hover {
+  color: #e2e6ea; /* Slightly off-white on hover */
+  border-bottom: 2px solid #e2e6ea; /* Border on hover */
+}
+
+/* Primary Button (e.g., Apply Now) */
+.btn.primary-btn {
+  background-color: #28A745; /* Green button color - corrected! */
+  color: white; /* White text on the green button */
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+  border: none; /* No border for the green button unless you want one */
+}
+
+.btn.primary-btn:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+
+/* Hamburger Menu Button (hidden by default on desktop) */
+.hamburger-menu {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  position: relative;
+  z-index: 1002;
+}
+
+/* Hamburger icon with three bars */
+.hamburger-icon,
+.hamburger-icon::before,
+.hamburger-icon::after {
+  display: block;
+  width: 30px;
+  height: 3px;
+  background-color: white; /* White hamburger icon */
+  margin: 6px 0;
+  transition: all 0.3s ease;
+  content: '';
+}
+
+.hamburger-icon {
+  position: relative;
+}
+
+.hamburger-icon::before {
+  position: absolute;
+  top: -9px;
+  left: 0;
+}
+
+.hamburger-icon::after {
+  position: absolute;
+  top: 9px;
+  left: 0;
+}
+
+/* Drawer Navigation (hidden by default) */
+.drawer-nav {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  width: 200px;
+  height: 100%;
+  background-color: #F8F9FA; /* Light background for drawer */
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+  transition: right 0.3s ease-in-out;
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  padding-top: 60px;
+}
+
+.drawer-nav.open {
+  right: 0;
+}
+
+.drawer-nav .nav-item {
+  color: #343A40; /* Dark text for drawer items */
+  padding: 15px 20px;
+  border-bottom: 1px solid #E0E0E0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.drawer-nav .nav-item:hover {
+  background-color: #E9ECEF;
+  color: #007BFF;
+  border-bottom: 1px solid #E0E0E0;
+}
+
+.drawer-nav .nav-item.btn.primary-btn {
+  text-align: center;
+  /* Specific styling for button inside drawer if different from main header button */
+  background-color: #28A745; /* Keep button green inside drawer */
+  color: white;
+  border: none; /* No border for drawer button */
+}
+
+/* Close button inside drawer */
+.close-drawer-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 2em;
+  color: #343A40;
+  cursor: pointer;
+  z-index: 1010;
+}
+
+/* Overlay when drawer is open */
+.drawer-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+/* Show overlay when drawer is open */
+.drawer-overlay.open {
+  display: block;
+}
+
+/* --- Media Queries for Mobile --- */
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .hamburger-menu {
+    display: block;
+  }
+
+  .main-header {
+    justify-content: space-between;
+  }
+
+  .college-name {
+    font-size: 1.5em;
+  }
+}

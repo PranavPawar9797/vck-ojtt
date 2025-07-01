@@ -1,0 +1,533 @@
+/* src/styles/Pages.css */
+
+/* ========================
+   Global Reset & Base
+======================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f0f9ff; /* Light background for the overall page outside page-container */
+  color: #1f2937;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #2563eb;
+}
+
+button {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+/* ========================
+   Animations (Keep if you use them elsewhere)
+======================== */
+@keyframes hero-zoom-in {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+
+.animate-hero-zoom {
+  animation: hero-zoom-in 20s ease-out forwards;
+}
+
+@keyframes fadeInUptoBottom {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUptoBottom 1s ease-out forwards;
+}
+
+
+/* ========================
+   Layout & Containers
+======================== */
+/* This is the main container for your *page content* (not the header) */
+.page-container {
+  max-width: 960px; /* Constrains content width */
+  margin: 20px auto; /* Centers the content block */
+  padding: 20px;
+  background-color: #fff; /* White background for page content */
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 60px - 50px); /* Adjust min-height to account for header/footer height if needed */
+}
+
+main {
+  flex: 1; /* Allows main content to grow and push footer down */
+}
+
+.text-center {
+  text-align: center;
+}
+
+.page-section {
+  padding: 2.5rem 0; /* Adjusted padding to be symmetrical */
+}
+
+.page-content-wrapper {
+  padding: 0; /* Removed this padding, as page-container already has it */
+}
+
+
+/* ========================
+   Typography
+======================== */
+.section-title-large {
+  font-size: 2.75rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #007bff; /* Stays vibrant blue */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.section-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #007bff; /* Stays vibrant blue */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+
+.section-subtitle {
+  font-size: 1.875rem;
+  font-weight: 600;
+  margin: 2rem 0 1rem;
+  color: #0056b3; /* Stays darker blue */
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.section-sub-heading {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 1.5rem 0 0.75rem;
+  color: #0056b3; /* Stays darker blue */
+}
+
+.section-text {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: #374151;
+  margin-bottom: 1rem;
+}
+
+.section-list {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  color: #374151;
+}
+
+.section-list li {
+  margin-bottom: 0.5rem;
+}
+
+.page-container ol {
+  margin-left: 25px;
+  margin-bottom: 20px;
+  list-style-type: decimal;
+  color: #555;
+}
+
+.page-container ol li {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+/* ========================
+   Footer
+======================== */
+footer {
+  background-color: #007bff; /* Now matches the header blue */
+  color: #e2e8f0;
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: 3rem; /* Space above footer */
+  width: 100%; /* Ensures footer is full width */
+  border-top: 1px solid #1e293b;
+  font-size: 0.875rem;
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+/* ========================
+   Buttons
+======================== */
+.button-primary {
+  background: linear-gradient(to right, #2563eb, #1d4ed8);
+  color: #fff;
+  padding: 0.75rem 2rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 1.125rem;
+  transition: background 0.3s ease;
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+.button-primary:hover {
+  background: linear-gradient(to right, #1e40af, #1d4ed8);
+}
+
+.button-secondary {
+  background-color: #4f46e5;
+  color: #fff;
+  padding: 0.75rem 2rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.button-secondary:hover {
+  background-color: #4338ca;
+}
+
+/* Specific button for HomePage banner */
+.apply-btn-green {
+  background-color: #28a745;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  display: inline-block; /* Make it inline-block for proper spacing */
+}
+
+.apply-btn-green:hover {
+  background-color: #218838;
+}
+
+.inquire-button { /* For the "Inquire About Courses" button */
+    background-color: #007bff; /* A standard blue */
+    color: white;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+}
+
+.inquire-button:hover {
+    background-color: #0056b3;
+}
+
+
+/* ========================
+   Tables
+======================== */
+.admissions-table,
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+thead {
+  background: #007bff; /* Changed to match primary blue */
+  color: white;
+  font-weight: 600;
+}
+
+th,
+td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 1rem;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tbody tr:hover {
+  background-color: #f1f5f9;
+}
+
+/* For responsive tables on smaller screens */
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
+  margin-bottom: 1.5rem;
+}
+
+
+/* ========================
+   Video Section
+======================== */
+.video-container {
+  margin: 2rem 0;
+  background-color: #000;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.course-video {
+  width: 100%;
+  display: block;
+  height: auto;
+}
+
+.video-caption {
+  text-align: center;
+  padding: 10px;
+  color: #777;
+  font-style: italic;
+  background-color: #f0f0f0;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+/* ========================
+   Hero & Gallery (HomePage Specific)
+======================== */
+.banner-section {
+  position: relative;
+  margin-bottom: 2rem;
+  overflow: hidden;
+  background-color: #007bff; /* Will be covered by image but useful fallback */
+  border-radius: 8px;
+  padding: 0;
+}
+
+.banner-container {
+  position: relative;
+  width: 100%;
+  /* Increased max-height to ensure text appears properly */
+  max-height: 400px; /* You can adjust this value (e.g., 350px, 450px, 500px) */
+  overflow: hidden;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures image covers the container */
+  /* Keep or adjust this filter to ensure text readability on the image */
+  filter: brightness(60%); /* Adjust for desired darkness/contrast */
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Styles for text overlaid on the banner image */
+.banner-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white; /* Text color remains white for readability on the dark image */
+  text-align: center;
+  width: 90%;
+  z-index: 10;
+}
+
+.banner-text .section-title-large {
+  color: white; /* Ensures title is white on the dark banner */
+  font-size: 3em; /* Adjust font size if needed */
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adds shadow for better visibility */
+  text-transform: none; /* Keep original casing or set to uppercase if desired */
+  letter-spacing: normal;
+}
+
+.banner-text .section-text {
+  color: white; /* Ensures text is white on the dark banner */
+  font-size: 1.3em; /* Adjust font size if needed */
+  margin-bottom: 25px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Adds shadow for better visibility */
+}
+
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.grid-2 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.grid-2 img:hover {
+  transform: scale(1.03);
+}
+
+
+/* ========================
+   404 Not Found Page (If applicable)
+======================== */
+.not-found-page main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+}
+
+.not-found-heading {
+  font-size: 3.75rem;
+  color: #ef4444;
+}
+
+.not-found-subheading {
+  font-size: 1.875rem;
+  margin-top: 0.5rem;
+}
+
+.not-found-text {
+  font-size: 1.125rem;
+  margin-top: 0.5rem;
+}
+
+/* ========================
+   Map Embed Section (Contact Page)
+======================== */
+.map-container {
+  width: 100%;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  margin-top: 1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.map-container iframe {
+  border: 0;
+  width: 100%;
+  height: 20rem;
+}
+
+@media (min-width: 768px) {
+  .map-container iframe {
+    height: 28rem;
+  }
+}
+
+/* ========================
+   Responsive Tweaks
+======================== */
+@media (max-width: 768px) {
+  .page-container {
+    margin: 15px auto;
+    padding: 15px;
+  }
+
+  /* Adjust banner text for smaller screens when it's overlaid */
+  .banner-text .section-title-large {
+    font-size: 2em;
+  }
+
+  .banner-text .section-text {
+    font-size: 0.9em;
+  }
+
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title-large {
+    font-size: 2rem;
+  }
+
+  .section-title {
+      font-size: 1.75rem;
+  }
+
+  .section-subtitle {
+    font-size: 1.5rem;
+  }
+
+  .section-text {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-container {
+    padding: 10px;
+  }
+
+  /* Adjust banner text for very small screens when it's overlaid */
+  .banner-text .section-title-large {
+    font-size: 1.5em;
+  }
+
+  .banner-text .section-text {
+    font-size: 0.85em;
+  }
+
+  .section-title-large {
+    font-size: 1.75rem;
+  }
+
+  .section-title {
+      font-size: 1.5rem;
+  }
+
+  .section-subtitle {
+    font-size: 1.25rem;
+  }
+
+  .section-text {
+    font-size: 0.95rem;
+  }
+}
