@@ -1,6 +1,6 @@
-/* src/components/Footer/Footer.css */ 
-.footer {
-  background-color: #343A40; /* Match header background */
+/* src/components/Footer/Footer.css */
+.app-footer {
+  background-color: #343A40; /* This dark background seems correct for the footer itself based on your screenshot's bottom bar */
   color: white;
   padding: 15px 20px;
   text-align: center;
@@ -8,4 +8,5 @@
   box-shadow: 0 -2px 8px rgba(0,0,0,0.1); /* Shadow at the top */
   flex-shrink: 0; /* Prevents it from shrinking */
   margin-top: auto; /* Pushes the footer to the bottom if content is short */
+  width: 100%;
 }

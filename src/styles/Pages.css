@@ -1,7 +1,7 @@
 /* src/styles/Pages.css */
 
 /* ========================
-   Global Reset & Base
+ * Global Reset & Base
 ======================== */
 * {
   box-sizing: border-box;
@@ -11,9 +11,14 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background: #f0f9ff; /* Light background for the overall page outside page-container */
+  /* Updated: Light blue background for the entire body */
+  background: #8de0eb; /* A very light, pale cyan-blue */
+  /* If #E0F7FA is too pale, uncomment one of these for a slightly stronger light blue: */
+  /* background: #B3E5FC; */ 
+  /* background: #f0f9ff; */ /* Your original very light blue was also good */
   color: #1f2937;
   line-height: 1.6;
+  overflow: hidden; /* Prevent body scrollbar */
 }
 
 img {
@@ -42,7 +47,7 @@ button:hover {
 }
 
 /* ========================
-   Animations (Keep if you use them elsewhere)
+ * Animations
 ======================== */
 @keyframes hero-zoom-in {
   0% {
@@ -72,25 +77,50 @@ button:hover {
   animation: fadeInUptoBottom 1s ease-out forwards;
 }
 
-
 /* ========================
-   Layout & Containers
+ * Layout & Containers
 ======================== */
-/* This is the main container for your *page content* (not the header) */
 .page-container {
-  max-width: 960px; /* Constrains content width */
-  margin: 20px auto; /* Centers the content block */
+  max-width: 960px;
+  margin: 20px auto; /* 20px top/bottom margin */
   padding: 20px;
-  background-color: #fff; /* White background for page content */
+  background-color: #fff; /* This remains white for the content area */
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh - 60px - 50px); /* Adjust min-height to account for header/footer height if needed */
+  /* min-height calculation: 100vh - (page-container top/bottom margin) - (header height) - (footer height) */
+  min-height: calc(100vh - 40px - 50px - 50px); 
+  overflow-y: auto; /* Adds vertical scrollbar if content overflows */
+  /* max-height calculation: 100vh - (page-container top/bottom margin) - (header height) - (footer height) */
+  max-height: calc(100vh - 40px - 50px - 50px); 
+  
+  /* Scrollbar styling for Webkit browsers (Chrome, Safari, Edge) */
+  &::-webkit-scrollbar {
+    width: 10px; /* Width of the scrollbar */
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Color of the scrollbar track */
+    border-radius: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #888; /* Color of the scrollbar thumb */
+    border-radius: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color of the scrollbar thumb on hover */
+  }
+
+  /* Scrollbar styling for Firefox */
+  scrollbar-width: thin; /* "auto" or "thin" */
+  scrollbar-color: #888 #f1f1f1; /* thumb color track color */
 }
 
 main {
-  flex: 1; /* Allows main content to grow and push footer down */
+  flex: 1;
 }
 
 .text-center {
@@ -98,43 +128,41 @@ main {
 }
 
 .page-section {
-  padding: 2.5rem 0; /* Adjusted padding to be symmetrical */
+  padding: 2.5rem 0;
 }
 
 .page-content-wrapper {
-  padding: 0; /* Removed this padding, as page-container already has it */
+  padding: 0;
 }
 
-
 /* ========================
-   Typography
+ * Typography
 ======================== */
 .section-title-large {
   font-size: 2.75rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
-  color: #007bff; /* Stays vibrant blue */
+  color: #007bff;
   text-transform: uppercase;
   letter-spacing: 1px;
   text-align: center;
 }
 
 .section-title {
-    font-size: 2.25rem;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
-    color: #007bff; /* Stays vibrant blue */
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    text-align: center;
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #007bff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
 }
-
 
 .section-subtitle {
   font-size: 1.875rem;
   font-weight: 600;
   margin: 2rem 0 1rem;
-  color: #0056b3; /* Stays darker blue */
+  color: #0056b3;
   border-bottom: 1px solid #eee;
   padding-bottom: 10px;
 }
@@ -143,7 +171,7 @@ main {
   font-size: 1.25rem;
   font-weight: 600;
   margin: 1.5rem 0 0.75rem;
-  color: #0056b3; /* Stays darker blue */
+  color: #0056b3;
 }
 
 .section-text {
@@ -176,22 +204,24 @@ main {
 }
 
 /* ========================
-   Footer
+ * Footer (Generic 'footer' styling is commented out to allow .app-footer to take precedence)
 ======================== */
+/*
 footer {
-  background-color: #007bff; /* Now matches the header blue */
+  background-color: #007bff;
   color: #e2e8f0;
   text-align: center;
   padding: 2rem 1rem;
-  margin-top: 3rem; /* Space above footer */
-  width: 100%; /* Ensures footer is full width */
+  margin-top: 3rem;
+  width: 100%;
   border-top: 1px solid #1e293b;
   font-size: 0.875rem;
-  box-sizing: border-box; /* Include padding in width calculation */
+  box-sizing: border-box;
 }
+*/
 
 /* ========================
-   Buttons
+ * Buttons
 ======================== */
 .button-primary {
   background: linear-gradient(to right, #2563eb, #1d4ed8);
@@ -223,7 +253,6 @@ footer {
   background-color: #4338ca;
 }
 
-/* Specific button for HomePage banner */
 .apply-btn-green {
   background-color: #28a745;
   color: white;
@@ -232,31 +261,30 @@ footer {
   text-decoration: none;
   font-weight: bold;
   transition: background-color 0.3s ease;
-  display: inline-block; /* Make it inline-block for proper spacing */
+  display: inline-block;
 }
 
 .apply-btn-green:hover {
   background-color: #218838;
 }
 
-.inquire-button { /* For the "Inquire About Courses" button */
-    background-color: #007bff; /* A standard blue */
-    color: white;
-    padding: 12px 25px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-    display: inline-block;
+.inquire-button {
+  background-color: #007bff;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  display: inline-block;
 }
 
 .inquire-button:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }
 
-
 /* ========================
-   Tables
+ * Tables
 ======================== */
 .admissions-table,
 table {
@@ -269,7 +297,7 @@ table {
 }
 
 thead {
-  background: #007bff; /* Changed to match primary blue */
+  background: #007bff;
   color: white;
   font-weight: 600;
 }
@@ -290,16 +318,14 @@ tbody tr:hover {
   background-color: #f1f5f9;
 }
 
-/* For responsive tables on smaller screens */
 .table-responsive {
   overflow-x: auto;
-  -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
+  -webkit-overflow-scrolling: touch;
   margin-bottom: 1.5rem;
 }
 
-
 /* ========================
-   Video Section
+ * Video Section
 ======================== */
 .video-container {
   margin: 2rem 0;
@@ -326,13 +352,13 @@ tbody tr:hover {
 }
 
 /* ========================
-   Hero & Gallery (HomePage Specific)
+ * Hero & Gallery (HomePage Specific)
 ======================== */
 .banner-section {
   position: relative;
   margin-bottom: 2rem;
   overflow: hidden;
-  background-color: #007bff; /* Will be covered by image but useful fallback */
+  background-color: #007bff; /* This is the header's current blue */
   border-radius: 8px;
   padding: 0;
 }
@@ -340,9 +366,12 @@ tbody tr:hover {
 .banner-container {
   position: relative;
   width: 100%;
-  /* Increased max-height to ensure text appears properly */
-  max-height: 400px; /* You can adjust this value (e.g., 350px, 450px, 500px) */
-  overflow: hidden;
+  /* It's good to keep a max-height on the container
+     to prevent a super tall image if its natural height is huge,
+     even if the image itself has a fixed height.
+     Adjust this value if your fixed .hero-image height is taller. */
+  max-height: 550px; /* Example: Ensure container is tall enough for the image */
+  overflow: hidden; /* Ensures image doesn't overflow container if fixed height is too big */
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -350,42 +379,40 @@ tbody tr:hover {
 }
 
 .hero-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Ensures image covers the container */
-  /* Keep or adjust this filter to ensure text readability on the image */
-  filter: brightness(60%); /* Adjust for desired darkness/contrast */
+  /* OPTION 2 APPLIED: Directly setting width and height of the image */
+  width: 100%; /* Image will take full width of its container (banner-container) */
+  height: 180px; /* Fixed height for the banner image. Adjust as needed. */
+  object-fit: cover; /* Essential: Ensures the image covers the area, cropping if necessary */
+  filter: brightness(60%);
   transition: transform 0.5s ease-in-out;
 }
 
-/* Styles for text overlaid on the banner image */
 .banner-text {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white; /* Text color remains white for readability on the dark image */
+  color: white;
   text-align: center;
   width: 90%;
   z-index: 10;
 }
 
 .banner-text .section-title-large {
-  color: white; /* Ensures title is white on the dark banner */
-  font-size: 3em; /* Adjust font size if needed */
+  color: white;
+  font-size: 3em;
   margin-bottom: 15px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adds shadow for better visibility */
-  text-transform: none; /* Keep original casing or set to uppercase if desired */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  text-transform: none;
   letter-spacing: normal;
 }
 
 .banner-text .section-text {
-  color: white; /* Ensures text is white on the dark banner */
-  font-size: 1.3em; /* Adjust font size if needed */
+  color: white;
+  font-size: 1.3em;
   margin-bottom: 25px;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Adds shadow for better visibility */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
-
 
 .grid-2 {
   display: grid;
@@ -412,9 +439,8 @@ tbody tr:hover {
   transform: scale(1.03);
 }
 
-
 /* ========================
-   404 Not Found Page (If applicable)
+ * 404 Not Found Page
 ======================== */
 .not-found-page main {
   display: flex;
@@ -440,7 +466,7 @@ tbody tr:hover {
 }
 
 /* ========================
-   Map Embed Section (Contact Page)
+ * Map Embed Section (Contact Page)
 ======================== */
 .map-container {
   width: 100%;
@@ -463,15 +489,15 @@ tbody tr:hover {
 }
 
 /* ========================
-   Responsive Tweaks
+ * Responsive Tweaks
 ======================== */
 @media (max-width: 768px) {
   .page-container {
     margin: 15px auto;
     padding: 15px;
+    max-height: calc(100vh - 30px - 50px - 50px); /* Adjust based on your actual header/footer heights */
   }
 
-  /* Adjust banner text for smaller screens when it's overlaid */
   .banner-text .section-title-large {
     font-size: 2em;
   }
@@ -489,7 +515,7 @@ tbody tr:hover {
   }
 
   .section-title {
-      font-size: 1.75rem;
+    font-size: 1.75rem;
   }
 
   .section-subtitle {
@@ -504,9 +530,9 @@ tbody tr:hover {
 @media (max-width: 480px) {
   .page-container {
     padding: 10px;
+    max-height: calc(100vh - 20px - 50px - 50px); /* Adjust based on your actual header/footer heights */
   }
 
-  /* Adjust banner text for very small screens when it's overlaid */
   .banner-text .section-title-large {
     font-size: 1.5em;
   }
@@ -520,7 +546,7 @@ tbody tr:hover {
   }
 
   .section-title {
-      font-size: 1.5rem;
+    font-size: 1.5rem;
   }
 
   .section-subtitle {

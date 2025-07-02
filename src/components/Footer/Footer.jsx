@@ -1,4 +1,5 @@
-import './Footer.css'; // Import the CSS file
+// src/components/Footer/Footer.jsx
+import './Footer.css'; // Ensure correct path
 
 const Footer = () => {
   return (
