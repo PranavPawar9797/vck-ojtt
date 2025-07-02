@@ -1,5 +1,5 @@
-// src/pages/CoursesPage.jsx
 import React from "react";
+import { Link } from "react-router-dom"; // ✅ Import Link
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import "../styles/Pages.css";
@@ -151,9 +151,9 @@ const CoursesPage = () => {
               <p className="section-text">
                 Have questions about a specific course?
               </p>
-              <a href="/contact" className="button-primary">
+              <Link to="/contact" className="button-primary">
                 Inquire About Courses
-              </a>
+              </Link>
             </section>
           </main>
         </div>
