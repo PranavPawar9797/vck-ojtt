@@ -1,39 +1,41 @@
 import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import "./Popup.css";
 
 const Popup = () => {
   const [showPopup, setShowPopup] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
-    let navType = null;
+    const isInitialLoad = (() => {
+      // Modern API
+      if (window.performance && window.performance.getEntriesByType) {
+        const navEntries = window.performance.getEntriesByType("navigation");
+        if (navEntries.length > 0) {
+          const navType = navEntries[0].type;
+          return navType === "navigate" || navType === "reload";
+        }
+      }
 
-    if (window.performance && window.performance.getEntriesByType) {
-      const navEntries = window.performance.getEntriesByType("navigation");
-      navType = navEntries.length > 0 ? navEntries[0].type : null;
-    }
+      // Legacy fallback
+      if (
+        window.performance &&
+        window.performance.navigation &&
+        typeof window.performance.navigation.type !== "undefined"
+      ) {
+        return window.performance.navigation.type === 1; // 1 = reload
+      }
 
-    // Fallback for older browsers
-    let legacyNavType = null;
-    if (
-      window.performance &&
-      window.performance.navigation &&
-      typeof window.performance.navigation.type !== "undefined"
-    ) {
-      legacyNavType = window.performance.navigation.type;
-    }
+      return false;
+    })();
 
-    const isHardLoad =
-      navType === "navigate" ||
-      navType === "reload" ||
-      legacyNavType === 1;
-
-    if (isHardLoad) {
+    if (isInitialLoad) {
       const timer = setTimeout(() => {
         setShowPopup(true);
       }, 500);
       return () => clearTimeout(timer);
     }
-  }, []);
+  }, []); // empty dependency = only run once on app load
 
   const closePopup = () => {
     setShowPopup(false);

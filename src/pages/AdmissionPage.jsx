@@ -56,12 +56,6 @@ const AdmissionPage = () => {
                 <li>Aadhar Card or Valid Photo ID</li>
                 <li>Passport-size Photographs</li>
               </ul>
-
-              <div className="text-center" style={{ marginTop: "1.5rem" }}>
-                <a href="/admission-form" className="button-primary">
-                  Apply Online
-                </a>
-              </div>
             </section>
           </main>
         </div>
